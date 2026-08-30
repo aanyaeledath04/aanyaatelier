@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aanya's Atelier — Portfolio</title>
+  <meta name="description" content="A growing portfolio of original artwork by Aanya, organized by medium and year.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="site-title">Aanya's Atelier</h1>
+      <p class="site-tagline">A Growing Collection of Artworks</p>
+      <nav class="site-nav">
+        <a href="index.html" class="active">Gallery</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="featured-section">
+    <div class="wrap">
+      <p class="section-eyebrow">Selected Works</p>
+      <h2 class="section-heading">Featured Pieces</h2>
+      <div class="featured-scroll" id="featured-scroll"></div>
+    </div>
+  </section>
+
+  <div class="filter-bar">
+    <div class="wrap">
+      <div class="medium-tabs" id="medium-tabs"></div>
+      <div class="secondary-filters">
+        <select id="year-filter">
+          <option value="all">All Years</option>
+        </select>
+        <select id="sort-filter">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="az">A–Z</option>
+        </select>
+        <span class="result-count" id="result-count"></span>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      Aanya's Atelier
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous piece">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next piece">›</button>
+      <div class="lightbox-image">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+      <div class="lightbox-info">
+        <p class="plaque-title" id="lightbox-title"></p>
+        <p class="plaque-meta" id="lightbox-meta"></p>
+        <p class="blurb" id="lightbox-blurb"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

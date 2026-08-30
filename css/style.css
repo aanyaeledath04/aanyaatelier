@@ -1,0 +1,611 @@
+/* ==========================================================================
+   Aanya's Artelier — Design tokens
+   Palette: soft blush/dusty-rose, warm ivory, deep rosewood text
+   Type: Fraunces (display, warm painterly serif) + Inter (body/UI)
+   Signature element: museum-style "gallery label" plaque under each piece
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Palette */
+  --ivory: #FBF5F2;
+  --ivory-deep: #F5EBE6;
+  --blush: #E8C4C4;
+  --blush-soft: #F0DCDA;
+  --rose: #C68A96;
+  --rose-deep: #A6606F;
+  --rosewood: #4A2E2E;
+  --rosewood-soft: #7A5A57;
+  --gold: #B8935F;
+  --white: #FFFEFC;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Layout */
+  --max-width: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--rosewood);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  padding: 2.75rem 0 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--blush-soft);
+  background: linear-gradient(180deg, var(--ivory-deep) 0%, var(--ivory) 100%);
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 0.01em;
+  margin: 0 0 0.35rem;
+  color: var(--rosewood);
+}
+
+.site-tagline {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--rosewood-soft);
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--rose-deep);
+  border-bottom-color: var(--rose);
+}
+
+/* ==========================================================================
+   Featured strip
+   ========================================================================== */
+
+.featured-section {
+  padding: 3rem 0 1rem;
+}
+
+.section-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem;
+  color: var(--rosewood);
+}
+
+.featured-scroll {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .featured-scroll { grid-template-columns: repeat(2, 1fr); }
+}
+
+.featured-card {
+  cursor: pointer;
+}
+
+.featured-card .frame {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 6px 18px -8px rgba(74, 46, 46, 0.35);
+  background: var(--white);
+}
+
+.featured-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.featured-card:hover img { transform: scale(1.04); }
+
+.featured-card .label {
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--rosewood);
+}
+
+/* ==========================================================================
+   Filter bar
+   ========================================================================== */
+
+.filter-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(251, 245, 242, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--blush-soft);
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+}
+
+.medium-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.medium-tab {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--blush);
+  background: var(--white);
+  color: var(--rosewood-soft);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.medium-tab:hover {
+  border-color: var(--rose);
+  color: var(--rose-deep);
+}
+
+.medium-tab.active {
+  background: var(--rose-deep);
+  border-color: var(--rose-deep);
+  color: var(--white);
+}
+
+.secondary-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.secondary-filters select {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--rosewood);
+  background: var(--white);
+  border: 1px solid var(--blush);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+.secondary-filters select:focus,
+.medium-tab:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--rose-deep);
+  outline-offset: 2px;
+}
+
+.result-count {
+  font-size: 0.8rem;
+  color: var(--rosewood-soft);
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   Gallery grid + gallery-label cards (signature element)
+   ========================================================================== */
+
+/* Masonry-style layout via CSS Grid with dense packing. Each piece's
+   real aspect ratio is baked into data.js at build time, so its grid
+   span is computed the instant the card is inserted -- no waiting on
+   image load, so there's no flicker or squashed-then-corrected jump.
+   grid-auto-flow: dense backfills small gaps so the grid packs
+   tightly, while items still land in newest-first order overall --
+   dense only ever pulls a later card forward to fill a gap, it never
+   pushes anything out of order. */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-auto-rows: 4px;
+  grid-auto-flow: row dense;
+  column-gap: 1.75rem;
+  row-gap: 0;
+  padding: 2rem 0 4rem;
+}
+
+.art-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.art-card .frame {
+  background: var(--white);
+  padding: 10px 10px 0;
+  border: 1px solid var(--blush-soft);
+  box-shadow: 0 8px 20px -10px rgba(74, 46, 46, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.art-card:hover .frame {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px -10px rgba(74, 46, 46, 0.38);
+}
+
+.art-card .frame-img {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.art-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* the gallery/museum label plaque */
+.art-card .plaque {
+  padding: 0.7rem 0.15rem 0.9rem;
+  border-top: 1px solid var(--blush-soft);
+  margin-top: 0.65rem;
+}
+
+.plaque .plaque-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.02rem;
+  color: var(--rosewood);
+  margin: 0 0 0.2rem;
+}
+
+.plaque .plaque-meta {
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--rosewood-soft);
+  text-transform: uppercase;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--rosewood-soft);
+  font-style: italic;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 20, 20, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 2rem 1rem;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox-inner {
+  background: var(--ivory);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+}
+
+@media (max-width: 700px) {
+  .lightbox-inner { grid-template-columns: 1fr; }
+}
+
+.lightbox-image {
+  background: var(--rosewood);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image img {
+  max-height: 82vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  padding: 2rem 1.75rem;
+}
+
+.lightbox-info .plaque-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--rosewood);
+  margin: 0 0 0.5rem;
+}
+
+.lightbox-info .plaque-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin-bottom: 1rem;
+}
+
+.lightbox-info .blurb {
+  font-size: 0.92rem;
+  color: var(--rosewood-soft);
+  line-height: 1.65;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: rgba(255, 254, 252, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--rosewood);
+  z-index: 2;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 254, 252, 0.9);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--rosewood);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-nav:hover {
+  background: var(--white);
+  color: var(--rose-deep);
+}
+
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+@media (max-width: 700px) {
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+}
+
+/* ==========================================================================
+   About page
+   ========================================================================== */
+
+.about-section {
+  padding: 3.5rem 0 5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-portrait {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 2.5rem;
+  border: 1px solid var(--blush-soft);
+  padding: 8px;
+  background: var(--white);
+  box-shadow: 0 8px 20px -10px rgba(74, 46, 46, 0.28);
+}
+
+.about-section h1 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.1rem;
+  text-align: center;
+  margin: 0 0 2rem;
+  color: var(--rosewood);
+}
+
+.about-section p {
+  font-size: 1rem;
+  color: var(--rosewood-soft);
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Contact section
+   ========================================================================== */
+
+.contact-section {
+  padding: 0 0 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-details {
+  margin-top: 1rem;
+}
+
+.contact-details p {
+  margin-bottom: 0.6rem;
+}
+
+.contact-details a {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--rose-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blush);
+  padding-bottom: 0.1rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-details a:hover {
+  color: var(--rosewood);
+  border-color: var(--rose-deep);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--blush-soft);
+  font-size: 0.8rem;
+  color: var(--rosewood-soft);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Mobile refinements
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 1.75rem 0 1.25rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+  }
+
+  /* Bigger touch targets for filters and tabs */
+  .medium-tab {
+    padding: 0.55rem 1.05rem;
+    font-size: 0.85rem;
+  }
+
+  .secondary-filters {
+    gap: 0.6rem;
+  }
+
+  .secondary-filters select {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .result-count {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.3rem;
+  }
+
+  /* Easier to tap on a phone */
+  .lightbox-close {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .lightbox {
+    padding: 0;
+  }
+
+  .lightbox-inner {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .about-portrait {
+    max-width: 220px;
+  }
+
+  .gallery-grid {
+    column-gap: 1.1rem;
+  }
+
+  .art-card .plaque {
+    padding: 0.6rem 0.1rem 0.75rem;
+  }
+}
