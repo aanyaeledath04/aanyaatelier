@@ -40,6 +40,54 @@
 
 const ARTWORKS = [
   {
+    title: "",
+    medium: "digital",
+    mediumLabel: "Adobe Illustrator",
+    year: 2025,
+    yearLabel: "2025",
+    theme: "",
+    image: "Eledath_Logo.jpeg",
+    ratio: 1.0,
+    blurb: "",
+    featured: false
+  },
+  {
+    title: "",
+    medium: "digital",
+    mediumLabel: "Adobe Illustrator",
+    year: 2025,
+    yearLabel: "2025",
+    theme: "",
+    image: "Eledath_Stamp.jpeg",
+    ratio: 1.25,
+    blurb: "",
+    featured: false
+  },
+  {
+    title: "",
+    medium: "digital",
+    mediumLabel: "Adobe Illustrator",
+    year: 2025,
+    yearLabel: "2025",
+    theme: "",
+    image: "IMG_1215.JPG",
+    ratio: 1.5938,
+    blurb: "",
+    featured: false
+  },
+  {
+    title: "",
+    medium: "digital",
+    mediumLabel: "Adobe Illustrator",
+    year: 2025,
+    yearLabel: "2025",
+    theme: "",
+    image: "IMG_1216.JPG",
+    ratio: 1.6319,
+    blurb: "",
+    featured: false
+  },
+  {
     title: "Balloon Flowers",
     medium: "colorpencil",
     mediumLabel: "Colored Pencil",
@@ -885,6 +933,7 @@ const ARTWORKS = [
    a brand-new medium key above that isn't in this list yet. */
 const MEDIUM_ORDER = [
   { key: "photograph",  label: "Photography" },
+  { key: "digital",     label: "Digital Art" },
   { key: "colorpencil", label: "Colored Pencil" },
   { key: "graphite",    label: "Graphite" },
   { key: "acrylic",     label: "Acrylic" },
